@@ -4,6 +4,7 @@ import { YourInfo } from "./YourInfo";
 import { OfficeAddress } from "./Plans";
 import { AuthorizedRepresentativeForm } from "./AddOns";
 import {BusinessDetailsForm} from "./BuissnessDetails"
+import components from "../Form";
 // import { Summary } from "./Summary";
 
 const steps = [
@@ -21,6 +22,14 @@ const steps = [
   },
   {
     step: 4,
+    component: BusinessDetailsForm
+  },
+  {
+    step: 5,
+    component: BusinessDetailsForm
+  },
+  {
+    step: 5,
     component: BusinessDetailsForm
   }
 ]
