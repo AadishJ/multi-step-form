@@ -51,6 +51,13 @@ type FormContextData = {
   stageOfBusinessField: Field;
   fundingDetailsField: Field;
 
+  // Legal and Compliance Document Fields
+  certificateOfIncorporationField: Field;
+  panTanField: Field;
+  gstRegistrationField: Field;
+  patentField: Field;
+  trademarkField: Field;
+
   // Dispatch Functions
   dispatchNameField: React.Dispatch<any>;
   dispatchEmailField: React.Dispatch<any>;
@@ -83,7 +90,14 @@ type FormContextData = {
     dispatchBriefDescriptionField: React.Dispatch<any>;
     dispatchWebsiteURLField: React.Dispatch<any>;
     dispatchStageOfBusinessField: React.Dispatch<any>;
-    dispatchFundingDetailsField: React.Dispatch<any>;
+  dispatchFundingDetailsField: React.Dispatch<any>;
+    
+   // Dispatch Functions for Legal and Compliance Document Fields
+   dispatchCertificateOfIncorporationField: React.Dispatch<any>;
+   dispatchPanTanField: React.Dispatch<any>;
+   dispatchGstRegistrationField: React.Dispatch<any>;
+   dispatchPatentField: React.Dispatch<any>;
+   dispatchTrademarkField: React.Dispatch<any>;
 
   
 
@@ -123,6 +137,13 @@ export const FormContext = createContext<FormContextData>({
   stageOfBusinessField: initialState,
   fundingDetailsField: initialState,
 
+   // Initial values for Legal and Compliance Document Fields
+   certificateOfIncorporationField: initialState,
+   panTanField: initialState,
+   gstRegistrationField: initialState,
+   patentField: initialState,
+   trademarkField: initialState,
+
   dispatchNameField: () => {},
   dispatchEmailField: () => {},
   dispatchPhoneNumberField: () => {},
@@ -143,7 +164,15 @@ export const FormContext = createContext<FormContextData>({
   dispatchStateField: () => {},
   dispatchPinCodeField: () => {},
   dispatchDistrictField: () => {},
-  dispatchSubDistrictField: () => {},
+  dispatchSubDistrictField: () => { },
+  
+  // Initial dispatch functions for Legal and Compliance Document Fields
+  dispatchCertificateOfIncorporationField: () => {},
+  dispatchPanTanField: () => {},
+  dispatchGstRegistrationField: () => {},
+  dispatchPatentField: () => {},
+  dispatchTrademarkField: () => {},
+
 
   dispatchRepresentativeNameField: () => {},
   dispatchRepresentativeDesignationField: () => {},
@@ -210,6 +239,13 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const [companyAddressField, dispatchCompanyAddressField] = useReducer(handleFormState, initialState);
   const [companyPhoneNumberField, dispatchCompanyPhoneNumberField] = useReducer(handleFormState, initialState);
 
+  const [certificateOfIncorporationField, dispatchCertificateOfIncorporationField] = useReducer(handleFormState, initialState);
+  const [panTanField, dispatchPanTanField] = useReducer(handleFormState, initialState);
+  const [gstRegistrationField, dispatchGstRegistrationField] = useReducer(handleFormState, initialState);
+  const [patentField, dispatchPatentField] = useReducer(handleFormState, initialState);
+  const [trademarkField, dispatchTrademarkField] = useReducer(handleFormState, initialState);
+
+
   // Address Fields
   const [addressLine1Field, dispatchAddressLine1Field] = useReducer(handleFormState, initialState);
   const [addressLine2Field, dispatchAddressLine2Field] = useReducer(handleFormState, initialState);
@@ -267,6 +303,13 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     dispatchWebsiteURLField({ type: ACTIONS.SET_VALUE, value: '' });
     dispatchStageOfBusinessField({ type: ACTIONS.SET_VALUE, value: '' });
     dispatchFundingDetailsField({ type: ACTIONS.SET_VALUE, value: '' });
+
+     // Reset Legal and Compliance Document Fields
+     dispatchCertificateOfIncorporationField({ type: ACTIONS.SET_VALUE, value: '' });
+     dispatchPanTanField({ type: ACTIONS.SET_VALUE, value: '' });
+     dispatchGstRegistrationField({ type: ACTIONS.SET_VALUE, value: '' });
+     dispatchPatentField({ type: ACTIONS.SET_VALUE, value: '' });
+     dispatchTrademarkField({ type: ACTIONS.SET_VALUE, value: '' });
   }
 
   const value = {
@@ -301,6 +344,20 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     websiteURLField,
     stageOfBusinessField,
     fundingDetailsField,
+
+     // Legal and Compliance Document Fields
+     certificateOfIncorporationField,
+     panTanField,
+     gstRegistrationField,
+     patentField,
+     trademarkField,
+ 
+     // Dispatch functions for Legal and Compliance Document Fields
+     dispatchCertificateOfIncorporationField,
+     dispatchPanTanField,
+     dispatchGstRegistrationField,
+     dispatchPatentField,
+     dispatchTrademarkField,
 
     dispatchNameField,
     dispatchEmailField,

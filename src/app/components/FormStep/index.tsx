@@ -3,7 +3,8 @@ import { useFormStep } from "../../hooks/use-form-step";
 import { YourInfo } from "./YourInfo";
 import { OfficeAddress } from "./Plans";
 import { AuthorizedRepresentativeForm } from "./AddOns";
-import {BusinessDetailsForm} from "./BuissnessDetails"
+import { BusinessDetailsForm } from "./BuissnessDetails"
+import {BusinessDetailsFormDocument} from "./LCD"
 import components from "../Form";
 // import { Summary } from "./Summary";
 
@@ -26,10 +27,10 @@ const steps = [
   },
   {
     step: 5,
-    component: BusinessDetailsForm
+    component: BusinessDetailsFormDocument
   },
   {
-    step: 5,
+    step: 6,
     component: BusinessDetailsForm
   }
 ]
